@@ -12,7 +12,6 @@ namespace WebAPI
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.IdentityModel.Tokens;
-    using System.Text;
 
     public class Program
     {
