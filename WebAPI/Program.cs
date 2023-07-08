@@ -47,6 +47,7 @@ namespace WebAPI
                };
            });
 
+
             // add dataBase Connection
             builder.Services.AddDbContext<ApplicationDbContext>(option => 
             option.UseSqlServer( builder.Configuration.GetConnectionString("DefaultConnection"))
@@ -67,6 +68,17 @@ namespace WebAPI
                }));
             builder.Services.AddHangfireServer();
 
+            //add Cors Configuration
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -82,7 +94,7 @@ namespace WebAPI
 
             app.UseHttpsRedirection();
             app.UseHangfireDashboard("/dashboard");
-
+            app.UseCors();
             app.UseAuthorization();
 
 

@@ -26,7 +26,7 @@
                 .HasComputedColumnSql("GETUTCDATE()")
                 .ValueGeneratedOnAdd();
             builder.Property(t => t.TicketStatus)
-                .HasDefaultValue(TicketStatus.Unhandeled);
+                .HasDefaultValue(TicketStatus.Unhandled);
             builder.HasData(CreateSeedingData());
             
         }
@@ -55,7 +55,7 @@
                     Governorate = Governorate.Alexandria,
                     City = City.Alexandria,
                     District = "Roushdy",
-                    TicketStatus = TicketStatus.Unhandeled
+                    TicketStatus = TicketStatus.Unhandled
                 },
                 new Ticket
                 {
@@ -66,7 +66,7 @@
                     Governorate = Governorate.Giza,
                     City = City.Giza,
                     District = "Dokki",
-                    TicketStatus = TicketStatus.Unhandeled
+                    TicketStatus = TicketStatus.Unhandled
                 },
                 new Ticket
                 {
@@ -88,7 +88,7 @@
                     Governorate = Governorate.Asyut,
                     City = City.Asyut,
                     District = "Asyut Center",
-                    TicketStatus = TicketStatus.Unhandeled
+                    TicketStatus = TicketStatus.Unhandled
                 },
                 };
 

@@ -2,7 +2,7 @@
 {
     public enum TicketStatus
     {
-        Unhandeled,
+        Unhandled,
         Handled
     }
 
