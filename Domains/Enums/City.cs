@@ -2,13 +2,12 @@
 {
     public enum City
     {
-        Alexandria,
-        Cairo,
-        Giza,
-        Luxor,
-        Aswan,
-        Asyut,
-        Tanta
+      CairoCity,
+       GizaCity,
+        Helwan,
+        the6thofOctober,
+        Damanhur,
+        Rashid
    }
 
 }

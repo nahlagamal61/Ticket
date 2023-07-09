@@ -2,15 +2,14 @@
 {
     public enum Governorate
     {
-        Alexandria,
-        Aswan,
-        Asyut,
-        Beheira,
-        BeniSuef,
-        Cairo,
-        Dakahlia,
-        Damietta,
-        Faiyum,
+    Cairo,
+    Alexandria,
+    Giza,
+    Luxor,
+   Aswan ,
+    Beheira,
+    BeniSuef,
+    Gharbia,
 
     }
 

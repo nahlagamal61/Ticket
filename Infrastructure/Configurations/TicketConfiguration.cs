@@ -39,10 +39,10 @@
                 {
                     ID = 1,
                     Description = "Lorem ipsum dolor sit amet",
-                    CreationDateTime = DateTime.Now.AddDays(-1),
-                    PhoneNumber = "1234567890",
+                    CreationDateTime = DateTime.Now,
+                    PhoneNumber = "+201234567890",
                     Governorate = Governorate.Cairo,
-                    City = City.Cairo,
+                    City = City.CairoCity,
                     District = "Nasr City",
                     TicketStatus = TicketStatus.Handled
                 },
@@ -52,9 +52,9 @@
                     Description = "Consectetur adipiscing elit",
                     CreationDateTime = DateTime.Now.AddDays(-2),
                     PhoneNumber = "9876543210",
-                    Governorate = Governorate.Alexandria,
-                    City = City.Alexandria,
-                    District = "Roushdy",
+                    Governorate = Governorate.Giza,
+                    City = City.GizaCity,
+                    District = "Eldoqi",
                     TicketStatus = TicketStatus.Unhandled
                 },
                 new Ticket
@@ -62,9 +62,9 @@
                     ID = 3,
                     Description = "Sed do eiusmod tempor incididunt",
                     CreationDateTime = DateTime.Now.AddDays(-3),
-                    PhoneNumber = "5555555555",
+                    PhoneNumber = "+20999999999",
                     Governorate = Governorate.Giza,
-                    City = City.Giza,
+                    City = City.GizaCity,
                     District = "Dokki",
                     TicketStatus = TicketStatus.Unhandled
                 },
@@ -73,9 +73,9 @@
                     ID = 4,
                     Description = "Ut labore et dolore magna aliqua",
                     CreationDateTime = DateTime.Now.AddDays(-4),
-                    PhoneNumber = "9999999999",
+                    PhoneNumber = "+20999999999",
                     Governorate = Governorate.Luxor,
-                    City = City.Luxor,
+                    City = City.Damanhur,
                     District = "Luxor City",
                     TicketStatus = TicketStatus.Handled
                 },
@@ -84,10 +84,10 @@
                     ID = 5,
                     Description = "Excepteur sint occaecat cupidatat non proident",
                     CreationDateTime = DateTime.Now.AddDays(-5),
-                    PhoneNumber = "1111111111",
-                    Governorate = Governorate.Asyut,
-                    City = City.Asyut,
-                    District = "Asyut Center",
+                    PhoneNumber = "+20111111111",
+                    Governorate = Governorate.Cairo,
+                    City = City.Helwan,
+                    District = "Helewam",
                     TicketStatus = TicketStatus.Unhandled
                 },
                 };
