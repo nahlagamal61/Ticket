@@ -28,7 +28,7 @@
         public string GovernorateName { get; set; }
         public string CityName { get; set; }
         public string District { get; set; }
-        public string TicketStatus { get; set; }
+        public TicketStatus TicketStatus { get; set; }
     
     }
 }

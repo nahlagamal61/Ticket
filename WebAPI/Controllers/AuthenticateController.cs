@@ -34,7 +34,7 @@
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
             var user = await _userManager.FindByEmailAsync(loginModel.Email);
-            if (user != null && await _userManager.CheckPasswordAsync(user, loginModel.Password));
+            if (user != null && await _userManager.CheckPasswordAsync(user, loginModel.Password))
             {
                 var userRoles = await _userManager.GetRolesAsync(user);
                 if (userRoles != null)
@@ -69,6 +69,10 @@
                 return BadRequest();
 
             }
+            else
+            {
+                return BadRequest(new CustomResponse<LoginModel>(loginModel, "failed to login", (int)HttpStatusCode.BadRequest));
+            }
         }
 
         [HttpPost]
@@ -88,11 +92,18 @@
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
                 return BadRequest(new CustomResponse<RegisterModel>(model, "User creation failed! Please check user details and try again.", (int)HttpStatusCode.InternalServerError));
+            
+            if (!await _roleManager.RoleExistsAsync(UserRole.User))
+                await _roleManager.CreateAsync(new IdentityRole(UserRole.User));
 
-            return BadRequest(new CustomResponse<RegisterModel>(model, "User created successfully!", (int)HttpStatusCode.OK));
+            if (await _roleManager.RoleExistsAsync(UserRole.User))
+            {
+                await _userManager.AddToRoleAsync(user, UserRole.User);
+            }
+
+            return Ok(new CustomResponse<RegisterModel>(model, "User created successfully!", (int)HttpStatusCode.OK));
 
         }
-
 
     }
 }

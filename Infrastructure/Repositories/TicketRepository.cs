@@ -19,7 +19,7 @@
         } 
         public async Task<ICollection<Ticket>> GetAllAsync(FilterPaging filterPaging )
         {
-            var tickets = await dbContext.Tickets.Skip((filterPaging.PageIndex - 1) * filterPaging.PageSize).Take(filterPaging.PageSize).ToListAsync();
+            var tickets = await dbContext.Tickets.OrderByDescending(x => x.ID).Skip((filterPaging.PageIndex - 1) * filterPaging.PageSize).Take(filterPaging.PageSize).ToListAsync();
             return tickets ;
         }
         public Task<Ticket> GetByIdAsync(int id)
@@ -47,7 +47,6 @@
         {
             Ticket ticket = new Ticket { ID = id }; 
             dbContext.Attach(ticket);
-            Console.WriteLine("time from function" + DateTime.Now);
         
             dbContext.Entry(ticket).Property(t => t.TicketStatus).IsModified = true;
             ticket.TicketStatus = status;

@@ -80,12 +80,15 @@
         {
             try
             {
-                await _repo.HandelTicketStatusAsync(id, status);
-                return Ok("Ticket status updated successfully.");
+                var ticket = await _repo.HandelTicketStatusAsync(id, status);
+
+                return Ok(new CustomResponse<Ticket>(ticket , "Ticket status updated successfully.", (int)HttpStatusCode.OK));
+
             }
             catch (Exception ex)
             {
-                return BadRequest("Failed to update ticket status.");
+                return Ok(new CustomResponse<Ticket>(null, "Failed to update ticket status", (int)HttpStatusCode.BadRequest));
+
             }
         }
     }
