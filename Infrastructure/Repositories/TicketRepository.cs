@@ -31,6 +31,7 @@
         {
             if (ticket != null)
             {
+                ticket.ManualCreationDateTime = DateTime.Now;
                 await dbContext.AddAsync(ticket);
                 await dbContext.SaveChangesAsync();
                 return ticket;

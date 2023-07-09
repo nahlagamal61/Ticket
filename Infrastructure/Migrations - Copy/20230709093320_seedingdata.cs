@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class updateonticket : Migration
+    public partial class seedingdata : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,6 +26,13 @@ namespace Infrastructure.Migrations
                 keyColumn: "Id",
                 keyValue: "bef2eb31-62e3-4760-8fe4-95bfaa35bc5d");
 
+            migrationBuilder.AddColumn<DateTime>(
+                name: "ManualCreationDateTime",
+                table: "Tickets",
+                type: "datetime2",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreationDateTime",
                 table: "Tickets",
@@ -39,17 +46,52 @@ namespace Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "3b2d9c8a-0588-41ac-856e-7ee176308c12", "e97bd6ab-2582-46d2-9c26-4e067154baeb", "Admin", "Admin" });
+                values: new object[] { "d65be664-947b-4af3-9858-eca62937db3a", "0d79de92-59c1-46ac-b604-6682fc5af709", "Admin", "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "c985b20d-b3f6-4a71-a669-20249ef3a078", 0, "056b15b0-074f-4e04-a3a6-2fa6420794d6", "admin@gmail.com", true, false, null, "admin@gmail.com", "Admin", "AQAAAAEAACcQAAAAECM8WgnGWjOnyNMBqDbNoM4TA5M4DBVRoh1mlcX1IfqotJ6WbSH4dzoLeyKaS7PpXw==", null, false, "f29935f8-5b4a-4063-b87c-45525fb755b6", false, "Admin" });
+                values: new object[] { "91768849-ae80-43a7-b648-93aa543dceb1", 0, "18f6115d-a829-4062-9f4e-47687ce1b255", "admin@gmail.com", true, false, null, "admin@gmail.com", "Admin", "AQAAAAEAACcQAAAAEKBgfZHMiiHJygEIoUz5ltzzf+nRaYACzUq9efc063bpy+9GoTOdfSkjRJUkw3jAsw==", null, false, "cf8ad9b2-29c5-4875-8614-143f69bee7b4", false, "Admin" });
+
+            migrationBuilder.UpdateData(
+                table: "Tickets",
+                keyColumn: "ID",
+                keyValue: 1,
+                column: "ManualCreationDateTime",
+                value: new DateTime(2023, 7, 9, 12, 33, 19, 794, DateTimeKind.Local).AddTicks(4081));
+
+            migrationBuilder.UpdateData(
+                table: "Tickets",
+                keyColumn: "ID",
+                keyValue: 2,
+                column: "ManualCreationDateTime",
+                value: new DateTime(2023, 7, 9, 12, 33, 19, 794, DateTimeKind.Local).AddTicks(4091));
+
+            migrationBuilder.UpdateData(
+                table: "Tickets",
+                keyColumn: "ID",
+                keyValue: 3,
+                column: "ManualCreationDateTime",
+                value: new DateTime(2023, 7, 9, 12, 33, 19, 794, DateTimeKind.Local).AddTicks(4095));
+
+            migrationBuilder.UpdateData(
+                table: "Tickets",
+                keyColumn: "ID",
+                keyValue: 4,
+                column: "ManualCreationDateTime",
+                value: new DateTime(2023, 7, 9, 12, 33, 19, 794, DateTimeKind.Local).AddTicks(4099));
+
+            migrationBuilder.UpdateData(
+                table: "Tickets",
+                keyColumn: "ID",
+                keyValue: 5,
+                column: "ManualCreationDateTime",
+                value: new DateTime(2023, 7, 9, 12, 33, 19, 794, DateTimeKind.Local).AddTicks(4103));
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "3b2d9c8a-0588-41ac-856e-7ee176308c12", "c985b20d-b3f6-4a71-a669-20249ef3a078" });
+                values: new object[] { "d65be664-947b-4af3-9858-eca62937db3a", "91768849-ae80-43a7-b648-93aa543dceb1" });
         }
 
         /// <inheritdoc />
@@ -58,17 +100,21 @@ namespace Infrastructure.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetUserRoles",
                 keyColumns: new[] { "RoleId", "UserId" },
-                keyValues: new object[] { "3b2d9c8a-0588-41ac-856e-7ee176308c12", "c985b20d-b3f6-4a71-a669-20249ef3a078" });
+                keyValues: new object[] { "d65be664-947b-4af3-9858-eca62937db3a", "91768849-ae80-43a7-b648-93aa543dceb1" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "3b2d9c8a-0588-41ac-856e-7ee176308c12");
+                keyValue: "d65be664-947b-4af3-9858-eca62937db3a");
 
             migrationBuilder.DeleteData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
-                keyValue: "c985b20d-b3f6-4a71-a669-20249ef3a078");
+                keyValue: "91768849-ae80-43a7-b648-93aa543dceb1");
+
+            migrationBuilder.DropColumn(
+                name: "ManualCreationDateTime",
+                table: "Tickets");
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreationDateTime",

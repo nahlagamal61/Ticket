@@ -23,8 +23,8 @@
             builder.Property(t => t.District)
                 .IsRequired();
             builder.Property(t => t.CreationDateTime)
-                .HasComputedColumnSql("GETDATE()")
-                .ValueGeneratedOnAdd();
+                .HasComputedColumnSql("GETDATE()");
+            
             builder.Property(t => t.TicketStatus)
                 .HasDefaultValue(TicketStatus.Unhandled);
             builder.HasData(CreateSeedingData());
@@ -40,6 +40,7 @@
                     ID = 1,
                     Description = "Lorem ipsum dolor sit amet",
                     CreationDateTime = DateTime.Now,
+                    ManualCreationDateTime = DateTime.Now,
                     PhoneNumber = "+201234567890",
                     Governorate = Governorate.Cairo,
                     City = City.CairoCity,
@@ -51,6 +52,7 @@
                     ID = 2,
                     Description = "Consectetur adipiscing elit",
                     CreationDateTime = DateTime.Now.AddDays(-2),
+                    ManualCreationDateTime = DateTime.Now,
                     PhoneNumber = "9876543210",
                     Governorate = Governorate.Giza,
                     City = City.GizaCity,
@@ -62,6 +64,7 @@
                     ID = 3,
                     Description = "Sed do eiusmod tempor incididunt",
                     CreationDateTime = DateTime.Now.AddDays(-3),
+                    ManualCreationDateTime = DateTime.Now,
                     PhoneNumber = "+20999999999",
                     Governorate = Governorate.Giza,
                     City = City.GizaCity,
@@ -73,6 +76,7 @@
                     ID = 4,
                     Description = "Ut labore et dolore magna aliqua",
                     CreationDateTime = DateTime.Now.AddDays(-4),
+                    ManualCreationDateTime = DateTime.Now,
                     PhoneNumber = "+20999999999",
                     Governorate = Governorate.Luxor,
                     City = City.Damanhur,
@@ -84,6 +88,7 @@
                     ID = 5,
                     Description = "Excepteur sint occaecat cupidatat non proident",
                     CreationDateTime = DateTime.Now.AddDays(-5),
+                    ManualCreationDateTime = DateTime.Now,
                     PhoneNumber = "+20111111111",
                     Governorate = Governorate.Cairo,
                     City = City.Helwan,

@@ -23,7 +23,7 @@
     {
         public int ID { get; set; }
         public string Description { get; set; }
-        public DateTime CreationDateTime { get; set; }
+        public DateTime ManualCreationDateTime { get; set; }
         public string PhoneNumber { get; set; }
         public string GovernorateName { get; set; }
         public string CityName { get; set; }

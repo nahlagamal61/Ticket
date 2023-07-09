@@ -58,7 +58,7 @@
                 var newTicket = _mapper.Map<Ticket>(ticketDto);
                 var addedTicket = await _repo.AddTicketAsync(newTicket);
 
-                Console.WriteLine("test" + addedTicket.CreationDateTime);
+                //Console.WriteLine("test" + addedTicket.CreationDateTime);
 
                 var jobId = BackgroundJob.Schedule(() => _repo.HandelTicketStatusAsync(addedTicket.ID, TicketStatus.Handled), TimeSpan.FromMinutes(60));
                 var response = new CustomResponse<Ticket>(addedTicket, message: "ticket added successfully", (int)HttpStatusCode.OK);
