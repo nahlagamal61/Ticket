@@ -34,7 +34,7 @@
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
             var user = await _userManager.FindByEmailAsync(loginModel.Email);
-            if (user != null && await _userManager.CheckPasswordAsync(user, loginModel.Password))
+            if (user != null && await _userManager.CheckPasswordAsync(user, loginModPasswordel.))
             {
                 var userRoles = await _userManager.GetRolesAsync(user);
                 if (userRoles != null)
