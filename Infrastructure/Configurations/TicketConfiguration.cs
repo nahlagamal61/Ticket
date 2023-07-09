@@ -23,7 +23,7 @@
             builder.Property(t => t.District)
                 .IsRequired();
             builder.Property(t => t.CreationDateTime)
-                .HasComputedColumnSql("GETUTCDATE()")
+                .HasComputedColumnSql("GETDATE()")
                 .ValueGeneratedOnAdd();
             builder.Property(t => t.TicketStatus)
                 .HasDefaultValue(TicketStatus.Unhandled);

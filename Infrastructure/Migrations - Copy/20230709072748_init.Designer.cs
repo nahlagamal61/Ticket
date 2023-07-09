@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230707200423_addIdentity")]
-    partial class addIdentity
+    [Migration("20230709072748_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,56 +70,56 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ID = 1,
-                            City = 1,
-                            CreationDateTime = new DateTime(2023, 7, 6, 23, 4, 23, 17, DateTimeKind.Local).AddTicks(2323),
+                            City = 0,
+                            CreationDateTime = new DateTime(2023, 7, 9, 10, 27, 48, 414, DateTimeKind.Local).AddTicks(4742),
                             Description = "Lorem ipsum dolor sit amet",
                             District = "Nasr City",
-                            Governorate = 5,
-                            PhoneNumber = "1234567890",
+                            Governorate = 0,
+                            PhoneNumber = "+201234567890",
                             TicketStatus = 1
                         },
                         new
                         {
                             ID = 2,
-                            City = 0,
-                            CreationDateTime = new DateTime(2023, 7, 5, 23, 4, 23, 17, DateTimeKind.Local).AddTicks(2373),
+                            City = 1,
+                            CreationDateTime = new DateTime(2023, 7, 7, 10, 27, 48, 414, DateTimeKind.Local).AddTicks(4801),
                             Description = "Consectetur adipiscing elit",
-                            District = "Roushdy",
-                            Governorate = 0,
+                            District = "Eldoqi",
+                            Governorate = 2,
                             PhoneNumber = "9876543210",
                             TicketStatus = 0
                         },
                         new
                         {
                             ID = 3,
-                            City = 2,
-                            CreationDateTime = new DateTime(2023, 7, 4, 23, 4, 23, 17, DateTimeKind.Local).AddTicks(2378),
+                            City = 1,
+                            CreationDateTime = new DateTime(2023, 7, 6, 10, 27, 48, 414, DateTimeKind.Local).AddTicks(4806),
                             Description = "Sed do eiusmod tempor incididunt",
                             District = "Dokki",
-                            Governorate = 10,
-                            PhoneNumber = "5555555555",
+                            Governorate = 2,
+                            PhoneNumber = "+20999999999",
                             TicketStatus = 0
                         },
                         new
                         {
                             ID = 4,
-                            City = 3,
-                            CreationDateTime = new DateTime(2023, 7, 3, 23, 4, 23, 17, DateTimeKind.Local).AddTicks(2383),
+                            City = 4,
+                            CreationDateTime = new DateTime(2023, 7, 5, 10, 27, 48, 414, DateTimeKind.Local).AddTicks(4809),
                             Description = "Ut labore et dolore magna aliqua",
                             District = "Luxor City",
-                            Governorate = 13,
-                            PhoneNumber = "9999999999",
+                            Governorate = 3,
+                            PhoneNumber = "+20999999999",
                             TicketStatus = 1
                         },
                         new
                         {
                             ID = 5,
-                            City = 5,
-                            CreationDateTime = new DateTime(2023, 7, 2, 23, 4, 23, 17, DateTimeKind.Local).AddTicks(2387),
+                            City = 2,
+                            CreationDateTime = new DateTime(2023, 7, 4, 10, 27, 48, 414, DateTimeKind.Local).AddTicks(4812),
                             Description = "Excepteur sint occaecat cupidatat non proident",
-                            District = "Asyut Center",
-                            Governorate = 2,
-                            PhoneNumber = "1111111111",
+                            District = "Helewam",
+                            Governorate = 0,
+                            PhoneNumber = "+20111111111",
                             TicketStatus = 0
                         });
                 });
@@ -187,6 +187,24 @@ namespace Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "bef2eb31-62e3-4760-8fe4-95bfaa35bc5d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f6414000-e67e-4644-9e67-9834e5f024ac",
+                            Email = "admin@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "admin@gmail.com",
+                            NormalizedUserName = "Admin",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFbGT6nAJFj/TjyRvjMMYVf/yv3XYrmDkYrMTtwJW5c5u/wHZPpJoMC1S+yC3gaQeg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b2d2fc2c-a8bf-4f02-b81d-777b83a94fe0",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -214,6 +232,15 @@ namespace Infrastructure.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0d711509-56ce-4efc-a8fc-1b81964e3f83",
+                            ConcurrencyStamp = "992e3247-03dd-4d15-acf7-b5edbc628622",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -301,6 +328,13 @@ namespace Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "bef2eb31-62e3-4760-8fe4-95bfaa35bc5d",
+                            RoleId = "0d711509-56ce-4efc-a8fc-1b81964e3f83"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

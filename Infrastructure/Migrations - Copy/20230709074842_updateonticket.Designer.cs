@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230707205351_SeedingAdmin")]
-    partial class SeedingAdmin
+    [Migration("20230709074842_updateonticket")]
+    partial class updateonticket
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("CreationDateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasComputedColumnSql("GETUTCDATE()");
+                        .HasComputedColumnSql("GETDATE()");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -70,56 +70,56 @@ namespace Infrastructure.Migrations
                         new
                         {
                             ID = 1,
-                            City = 1,
-                            CreationDateTime = new DateTime(2023, 7, 6, 23, 53, 51, 412, DateTimeKind.Local).AddTicks(7171),
+                            City = 0,
+                            CreationDateTime = new DateTime(2023, 7, 9, 10, 48, 41, 708, DateTimeKind.Local).AddTicks(4980),
                             Description = "Lorem ipsum dolor sit amet",
                             District = "Nasr City",
-                            Governorate = 5,
-                            PhoneNumber = "1234567890",
+                            Governorate = 0,
+                            PhoneNumber = "+201234567890",
                             TicketStatus = 1
                         },
                         new
                         {
                             ID = 2,
-                            City = 0,
-                            CreationDateTime = new DateTime(2023, 7, 5, 23, 53, 51, 412, DateTimeKind.Local).AddTicks(7214),
+                            City = 1,
+                            CreationDateTime = new DateTime(2023, 7, 7, 10, 48, 41, 708, DateTimeKind.Local).AddTicks(5025),
                             Description = "Consectetur adipiscing elit",
-                            District = "Roushdy",
-                            Governorate = 0,
+                            District = "Eldoqi",
+                            Governorate = 2,
                             PhoneNumber = "9876543210",
                             TicketStatus = 0
                         },
                         new
                         {
                             ID = 3,
-                            City = 2,
-                            CreationDateTime = new DateTime(2023, 7, 4, 23, 53, 51, 412, DateTimeKind.Local).AddTicks(7217),
+                            City = 1,
+                            CreationDateTime = new DateTime(2023, 7, 6, 10, 48, 41, 708, DateTimeKind.Local).AddTicks(5030),
                             Description = "Sed do eiusmod tempor incididunt",
                             District = "Dokki",
-                            Governorate = 10,
-                            PhoneNumber = "5555555555",
+                            Governorate = 2,
+                            PhoneNumber = "+20999999999",
                             TicketStatus = 0
                         },
                         new
                         {
                             ID = 4,
-                            City = 3,
-                            CreationDateTime = new DateTime(2023, 7, 3, 23, 53, 51, 412, DateTimeKind.Local).AddTicks(7220),
+                            City = 4,
+                            CreationDateTime = new DateTime(2023, 7, 5, 10, 48, 41, 708, DateTimeKind.Local).AddTicks(5033),
                             Description = "Ut labore et dolore magna aliqua",
                             District = "Luxor City",
-                            Governorate = 13,
-                            PhoneNumber = "9999999999",
+                            Governorate = 3,
+                            PhoneNumber = "+20999999999",
                             TicketStatus = 1
                         },
                         new
                         {
                             ID = 5,
-                            City = 5,
-                            CreationDateTime = new DateTime(2023, 7, 2, 23, 53, 51, 412, DateTimeKind.Local).AddTicks(7222),
+                            City = 2,
+                            CreationDateTime = new DateTime(2023, 7, 4, 10, 48, 41, 708, DateTimeKind.Local).AddTicks(5039),
                             Description = "Excepteur sint occaecat cupidatat non proident",
-                            District = "Asyut Center",
-                            Governorate = 2,
-                            PhoneNumber = "1111111111",
+                            District = "Helewam",
+                            Governorate = 0,
+                            PhoneNumber = "+20111111111",
                             TicketStatus = 0
                         });
                 });
@@ -191,17 +191,17 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1cc6bbf5-9fb2-4c1e-a30a-1e887b6344e9",
+                            Id = "c985b20d-b3f6-4a71-a669-20249ef3a078",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ac622625-27b6-4722-89e2-6e9297a97b14",
+                            ConcurrencyStamp = "056b15b0-074f-4e04-a3a6-2fa6420794d6",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "Admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKBRAGObT21KWI1iN2Bj5oR25FpwFH/i8BNsKsTmg4xpBsF5Igp+4QBKygdz5juAMw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECM8WgnGWjOnyNMBqDbNoM4TA5M4DBVRoh1mlcX1IfqotJ6WbSH4dzoLeyKaS7PpXw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3d0afe69-8a42-4c3e-b56c-635258e1313f",
+                            SecurityStamp = "f29935f8-5b4a-4063-b87c-45525fb755b6",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -236,8 +236,8 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "43d0f46a-8822-45c7-9d8b-241689e0f039",
-                            ConcurrencyStamp = "acbc9673-d87c-45dc-b7ca-412be43f22cf",
+                            Id = "3b2d9c8a-0588-41ac-856e-7ee176308c12",
+                            ConcurrencyStamp = "e97bd6ab-2582-46d2-9c26-4e067154baeb",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         });
@@ -332,8 +332,8 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "1cc6bbf5-9fb2-4c1e-a30a-1e887b6344e9",
-                            RoleId = "43d0f46a-8822-45c7-9d8b-241689e0f039"
+                            UserId = "c985b20d-b3f6-4a71-a669-20249ef3a078",
+                            RoleId = "3b2d9c8a-0588-41ac-856e-7ee176308c12"
                         });
                 });
 

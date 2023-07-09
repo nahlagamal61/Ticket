@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class addIdentity : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -48,6 +50,25 @@ namespace Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tickets",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    CreationDateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETUTCDATE()"),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Governorate = table.Column<int>(type: "int", nullable: false),
+                    City = table.Column<int>(type: "int", nullable: false),
+                    District = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TicketStatus = table.Column<int>(type: "int", nullable: false, defaultValue: 0)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tickets", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -156,6 +177,45 @@ namespace Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "0d711509-56ce-4efc-a8fc-1b81964e3f83", "992e3247-03dd-4d15-acf7-b5edbc628622", "Admin", "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "bef2eb31-62e3-4760-8fe4-95bfaa35bc5d", 0, "f6414000-e67e-4644-9e67-9834e5f024ac", "admin@gmail.com", true, false, null, "admin@gmail.com", "Admin", "AQAAAAEAACcQAAAAEFbGT6nAJFj/TjyRvjMMYVf/yv3XYrmDkYrMTtwJW5c5u/wHZPpJoMC1S+yC3gaQeg==", null, false, "b2d2fc2c-a8bf-4f02-b81d-777b83a94fe0", false, "Admin" });
+
+            migrationBuilder.InsertData(
+                table: "Tickets",
+                columns: new[] { "ID", "City", "Description", "District", "Governorate", "PhoneNumber", "TicketStatus" },
+                values: new object[] { 1, 0, "Lorem ipsum dolor sit amet", "Nasr City", 0, "+201234567890", 1 });
+
+            migrationBuilder.InsertData(
+                table: "Tickets",
+                columns: new[] { "ID", "City", "Description", "District", "Governorate", "PhoneNumber" },
+                values: new object[,]
+                {
+                    { 2, 1, "Consectetur adipiscing elit", "Eldoqi", 2, "9876543210" },
+                    { 3, 1, "Sed do eiusmod tempor incididunt", "Dokki", 2, "+20999999999" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tickets",
+                columns: new[] { "ID", "City", "Description", "District", "Governorate", "PhoneNumber", "TicketStatus" },
+                values: new object[] { 4, 4, "Ut labore et dolore magna aliqua", "Luxor City", 3, "+20999999999", 1 });
+
+            migrationBuilder.InsertData(
+                table: "Tickets",
+                columns: new[] { "ID", "City", "Description", "District", "Governorate", "PhoneNumber" },
+                values: new object[] { 5, 2, "Excepteur sint occaecat cupidatat non proident", "Helewam", 0, "+20111111111" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "0d711509-56ce-4efc-a8fc-1b81964e3f83", "bef2eb31-62e3-4760-8fe4-95bfaa35bc5d" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -213,6 +273,9 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Tickets");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
